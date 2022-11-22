@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+  
+    
+    <div class="container">
+        <h1 class="alert alert-info mt-5 mb-5 text-center">Ajax CRUD OPERATION</h1>
+        <div class="row">
+       
+           
+            <form id="myform" class="col-sm-5" method="post">
+                 <h3 class="alert alert-success text-center">Add / insert data</h1>
+                 
+                <div>
+                 <label class="form-label">Name:</label>
+                 <input type="text" id="nameid" class="form-control">
+                </div>
+                <div>
+                 <label class="form-label">Email:</label>
+                 <input type="text" id="emailid" class="form-control">
+                </div>
+                <div>
+                 <label class="form-label">Password:</label>
+                 <input type="password" id="passwordid" class="form-control">
+                </div>
+                <div class="d-grid">
+                <button type="submit" id="btnadd" class="btn btn-primary mt-2">Submit</button>
+                </div>
+                
+                <div id="msg" class="alert alert-danger mt-2">...</div>
+            </form>
+            
+      
+            
+            <div class="col-sm-7">
+                 <h3 class="alert alert-warning text-center">Show Details</h1>
+                 <table class="table text-center">
+                     <thead>
+                         <th scpope="col">ID</th>
+                         <th scpope="col">Name</th>
+                         <th scpope="col">Email</th>
+                         <th scpope="col">Password</th>
+                         <th scpope="col">Acttion</th>
+                     </thead>
+                     <tbody id="tbody">
+                         
+                     </tbody>
+                 </table>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="myajax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
