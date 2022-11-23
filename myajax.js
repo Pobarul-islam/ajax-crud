@@ -5,16 +5,12 @@ $(document).ready(function () {
     $('#btnadd').click(function (e) {
         e.preventDefault();
         // console.log('button add clicked worked')
-
+        let id = $('#stid').val();
         let nm = $('#nameid').val();
         let em = $('#emailid').val();
         let ps = $('#passwordid').val();
 
-        let mydata = {
-            name: nm,
-            email: em,
-            password: ps
-        };
+        let mydata = {id: id,name: nm,email: em, password: ps};
 
         $.ajax({
             url: 'insert.php',
@@ -28,7 +24,7 @@ $(document).ready(function () {
 
         })
         $('#myform')[0].reset();
-         show_Data();
+        show_Data();
 
 
 
@@ -65,23 +61,48 @@ $(document).ready(function () {
         console.log("btn delete for clicked");
         let id = $(this).attr('data-side');
         console.log(id);
-        
-        let mydata = {id : id };
-        
+
+        let mydata = {
+            id: id
+        };
+
         mythis = this;
         $.ajax({
             url: 'delete.php',
             method: 'post',
-            data:mydata,
-            success:function(data){
+            data: mydata,
+            success: function (data) {
                 console.log(data);
                 $('#msg').html(data);
                 $(mythis).closest('tr').fadeOut(500);
             }
         })
-        
+
     })
 
 
-
+      // ajax code for delete
+    
+     $('#tbody').on("click", "#btnedit", function () {
+         console.log("edet btn");
+         let id = $(this).attr('data-side');
+         console.log(id); 
+         mydata= {id:id};
+        
+         $.ajax({
+             url:'edit.php',
+             method:'post',
+              dataType:'json',
+             data:mydata,
+             success:function(data){
+              //   console.log(data);
+                 x = data;
+                 $('#stid').val(x.id);
+                 $('#nameid').val(x.name);
+                  $('#emailid').val(x.email);
+                  $('#passwordid').val(x.password);
+                 
+             }
+         })
+     })
 })
