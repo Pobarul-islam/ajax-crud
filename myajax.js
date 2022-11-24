@@ -24,6 +24,8 @@ $(document).ready(function () {
 
         })
         $('#myform')[0].reset();
+		$('#stid').val('');
+		$('#nameid').focus();
        show_Data();
 
 
@@ -105,4 +107,27 @@ $(document).ready(function () {
              }
          })
      })
+	 
+	 
+
 })
+
+
+
+	 
+	 function myfun1(){
+	let given = $('#mytxt').val();
+	mydata = {name: given};
+	$.ajax({
+		url: 'search.php',
+		method: 'post',
+		data: 'mydata',
+		dataType: 'json',
+		success:function(data){
+			console.log(data)
+		}
+	})
+}
+
+
+
