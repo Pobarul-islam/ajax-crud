@@ -11,20 +11,20 @@ $(document).ready(function () {
         let ps = $('#passwordid').val();
 
         let mydata = {id: id,name: nm,email: em, password: ps};
-
+	
         $.ajax({
             url: 'insert.php',
             method: 'post',
             data: mydata,
             success: function (data) {
                 //console.log(data)
-                $('#msg').html(data);
+               $('#msg').html(data);
+				
             }
-
 
         })
         $('#myform')[0].reset();
-        show_Data();
+       show_Data();
 
 
 
@@ -81,10 +81,10 @@ $(document).ready(function () {
     })
 
 
-      // ajax code for delete
+      // ajax code for edited
     
      $('#tbody').on("click", "#btnedit", function () {
-         console.log("edet btn");
+        // console.log("edit btn");
          let id = $(this).attr('data-side');
          console.log(id); 
          mydata= {id:id};
@@ -95,7 +95,7 @@ $(document).ready(function () {
               dataType:'json',
              data:mydata,
              success:function(data){
-              //   console.log(data);
+               //console.log(data);
                  x = data;
                  $('#stid').val(x.id);
                  $('#nameid').val(x.name);
